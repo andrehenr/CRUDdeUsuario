@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/txt_usuario_logado"/>
+    <Button  android:layout_width="match_parent" android:id="@+id/btn_listar_todos"
+        android:layout_height="wrap_content" android:text="@string/btn_listar_todos"
+        />
+    <Button  android:layout_width="match_parent" android:id="@+id/btn_lista_por_parametro"
+        android:layout_height="wrap_content" android:text="@string/btn_lista_por_parametro"/>
+    <Button  android:layout_width="match_parent" android:id="@+id/btn_adduser"
+        android:layout_height="wrap_content" android:text="@string/btn_adduser"/>
+    <Button  android:layout_width="match_parent" android:id="@+id/btn_editar"
+        android:layout_height="wrap_content" android:text="@string/btn_editar"/>
+
+</LinearLayout>

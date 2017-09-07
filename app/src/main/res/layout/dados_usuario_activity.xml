@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow>
+            <TextView
+                android:text="@string/txt_usuario" />
+            <EditText
+                android:id="@+id/txt_login" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/txt_password" />
+            <EditText
+                android:id="@+id/txt_senha" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/txt_nome" />
+            <EditText
+                android:id="@+id/txt_nome" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/txt_status" />
+            <EditText
+                android:id="@+id/txt_status" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/txt_tipo" />
+            <EditText
+                android:id="@+id/txt_tipo" />
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1">
+        <TableRow>
+            <Button
+                android:text="@string/btn_salvar"
+                android:onClick="salvaUsuario"/>
+            <Button android:id="@+id/btn_excluir"
+                android:text="@string/btn_excluir"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

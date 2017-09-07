@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CRUD de Usuario</string>
+    <string name="txt_usuario">Usuário</string>
+    <string name="txt_password">Senha</string>
+    <string name="btn_adduser">Novo Usuário</string>
+    <string name="btn_login">Entrar</string>
+    <string name="txt_status">Status</string>
+    <string name="txt_tipo">Tipo</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_excluir">Excluir</string>
+    <string name="txt_nome">Nome</string>
+    <string name="btn_listar_todos">Listar Todos Usuários</string>
+    <string name="btn_lista_por_parametro">Listar Usuário por Parametro</string>
+    <string name="btn_sair">Sair</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_search">Pesquisar</string>
+</resources>

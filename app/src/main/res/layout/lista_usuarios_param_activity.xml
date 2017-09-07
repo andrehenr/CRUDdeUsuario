@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_usuario_logado_2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1">
+        <EditText
+            android:id = "@+id/pesquisa"
+            android:inputType = "text" />
+        <Button
+            android:id = "@+id/btn_pesquisar"
+            android:text = "@string/btn_search"
+            android:onClick="pesquisar"/>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listusu"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+</LinearLayout>
