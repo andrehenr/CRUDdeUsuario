@@ -37,15 +37,15 @@ public class UsuarioListParamActivitity extends Activity{
         editTextPesquisa = (EditText) findViewById(R.id.pesquisa);
         final Context con = getBaseContext();
         usuarioDao = new UsuarioDao(con);
-        ListaUsuarios = (ListView) findViewById(R.id.listausu);
         final EditText pesquisa = (EditText)findViewById(R.id.pesquisa);
 
         Button btnpesquisar = (Button) findViewById(R.id.btn_pesquisar);
         btnpesquisar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String stringNome = pesquisa.getText().toString();
-                adapter = new ArrayAdapter<Usuario>(con,android.R.layout.simple_list_item_1,usuarioDao.listarUsuariosPorNome(stringNome));
-                ListaUsuarios.setAdapter(adapter);
+                Intent intent = new Intent(UsuarioListParamActivitity.this,UsuarioListActivitity.class);
+                intent.putExtra("nomeUsuario",stringNome);
+                startActivity(intent);
             }
         });
 

@@ -94,9 +94,9 @@ public class UsuarioDao {
     }
     public List<Map<String, Object>> listarUsuariosPorNome(String nome){
         db = helper.getReadableDatabase();
-        String selectQuery = "SELECT * FROM usuarios WHERE nome LIKE ?" ;
+        String selectQuery = "SELECT _id, nome, login, status, tipo FROM usuarios WHERE login LIKE '%"+nome+"%'" ;
         String[] whereArgs = new String [] {nome};
-        Cursor cursor = db.rawQuery(selectQuery, whereArgs);
+        Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
 
         usuarios = new ArrayList<>();
@@ -104,14 +104,14 @@ public class UsuarioDao {
         for(int i=0;i<cursor.getCount();i++){
             Map<String,Object> item = new HashMap<>();
             String id = cursor.getString(0);
-            String login = cursor.getString(1);
-            String senha = cursor.getString(2);
+            String nomeComplero = cursor.getString(1);
+            String login = cursor.getString(2);
             String status = cursor.getString(3);
             String tipo = cursor.getString(4);
 
             item.put("id",id);
+            item.put("nome", "Nome: "+nomeComplero);
             item.put("login", "Login: "+login);
-            item.put("senha", senha);
             item.put("status", "Status: "+status);
             item.put("tipo", "Tipo: "+tipo);
 
@@ -123,22 +123,21 @@ public class UsuarioDao {
     }
     public List<Map<String, Object>> listarUsuarios(){
         db = helper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM usuarios",null);
+        Cursor cursor = db.rawQuery("SELECT _id, nome, login, status, tipo FROM usuarios",null);
         cursor.moveToFirst();
-
         usuarios = new ArrayList<>();
 
         for(int i=0;i<cursor.getCount();i++){
             Map<String,Object> item = new HashMap<>();
             String id = cursor.getString(0);
-            String login = cursor.getString(1);
-            String senha = cursor.getString(2);
+            String nomeComplero = cursor.getString(1);
+            String login = cursor.getString(2);
             String status = cursor.getString(3);
             String tipo = cursor.getString(4);
 
             item.put("id",id);
+            item.put("nome", "Nome: "+nomeComplero);
             item.put("login", "Login: "+login);
-            item.put("senha", senha);
             item.put("status", "Status: "+status);
             item.put("tipo", "Tipo: "+tipo);
 
