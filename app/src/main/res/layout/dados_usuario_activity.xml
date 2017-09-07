@@ -46,7 +46,8 @@
                 android:text="@string/btn_salvar"
                 android:onClick="salvaUsuario"/>
             <Button android:id="@+id/btn_excluir"
-                android:text="@string/btn_excluir"/>
+                android:text="@string/btn_excluir"
+                android:onClick="deletaUsuario"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

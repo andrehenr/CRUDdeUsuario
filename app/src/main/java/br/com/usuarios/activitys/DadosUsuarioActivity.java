@@ -63,6 +63,18 @@ public class DadosUsuarioActivity extends Activity {
         }
     }
 
+    public void deletaUsuario(View view){
+        String mensagemErro;
+        if(usuarioDao.delete(usuarioEdicao) == 1){
+           mensagemErro = "Usuário deletado com sucesso";
+        }
+        else{
+            mensagemErro = "O Usuário não foi deletado";
+        }
+        Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     public void salvaUsuario(View view){
         editTextTipo = (EditText) findViewById(R.id.txt_tipo);
         editTextStatus = (EditText) findViewById(R.id.txt_status);

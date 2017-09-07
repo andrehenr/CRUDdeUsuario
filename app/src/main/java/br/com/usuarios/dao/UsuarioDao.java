@@ -92,6 +92,13 @@ public class UsuarioDao {
         }
         return false;
     }
+    public int delete(Usuario usuario){
+        db = helper.getWritableDatabase();
+        String where [] = new String[] {usuario.get_id().toString()};
+        int resultado = db.delete(DatabaseHelper.Usuario.TABELA,"_id = ?",where);
+        db.close();
+        return resultado;
+    }
     public List<Map<String, Object>> listarUsuariosPorNome(String nome){
         db = helper.getReadableDatabase();
         String selectQuery = "SELECT _id, nome, login, status, tipo FROM usuarios WHERE login LIKE '%"+nome+"%'" ;
