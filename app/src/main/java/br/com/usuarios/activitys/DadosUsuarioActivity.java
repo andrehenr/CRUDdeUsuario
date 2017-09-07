@@ -73,6 +73,7 @@ public class DadosUsuarioActivity extends Activity {
         }
         Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
         toast.show();
+        startActivity(new Intent(this,LoginActivity.class));
     }
 
     public void salvaUsuario(View view){
