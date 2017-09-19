@@ -14,4 +14,7 @@
     <string name="btn_sair">Sair</string>
     <string name="btn_editar">Editar</string>
     <string name="btn_search">Pesquisar</string>
+    <string name="confirmacao_exclusao_usuario">Deseja realmente excluir o usuário? </string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 </resources>

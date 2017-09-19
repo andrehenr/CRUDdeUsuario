@@ -27,7 +27,7 @@ public class UsuarioListActivitity extends ListActivity{
         int[] para = {R.id.login,R.id.nome, R.id.status, R.id.tipo};
 
         if(intent.hasExtra("nomeUsuario")){
-            adapter = new SimpleAdapter(this,usuarioDao.listarUsuariosPorNome(intent.getStringExtra("nomeUsuario")),R.layout.lista_usuarios_activity,de,para);
+           adapter = new SimpleAdapter(this,usuarioDao.listarUsuariosPorNome(intent.getStringExtra("nomeUsuario")),R.layout.lista_usuarios_activity,de,para);
         }
         else {
             adapter = new SimpleAdapter(this,usuarioDao.listarUsuarios(),R.layout.lista_usuarios_activity,de,para);

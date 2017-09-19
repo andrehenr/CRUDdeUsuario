@@ -1,6 +1,8 @@
 package br.com.usuarios.activitys;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +29,9 @@ public class DadosUsuarioActivity extends Activity {
     private String stringTipo ;
     private String stringStatus ;
     private String stringNome ;
-    Usuario usuarioEdicao;
+    private Usuario usuarioEdicao;
+    private AlertDialog dialogConfrimacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,7 @@ public class DadosUsuarioActivity extends Activity {
             editTextUsuario.setText(usuarioEdicao.getLogin());
             editTextSenha.setText(usuarioEdicao.getSenha());
             editTextNome.setText(usuarioEdicao.getNome());
+            this.dialogConfrimacao = criaDialogConfirmacao();
 
         }
         if(intent.hasExtra("usuario")) {
@@ -64,16 +69,7 @@ public class DadosUsuarioActivity extends Activity {
     }
 
     public void deletaUsuario(View view){
-        String mensagemErro;
-        if(usuarioDao.delete(usuarioEdicao) == 1){
-           mensagemErro = "Usuário deletado com sucesso";
-        }
-        else{
-            mensagemErro = "O Usuário não foi deletado";
-        }
-        Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
-        toast.show();
-        startActivity(new Intent(this,LoginActivity.class));
+        dialogConfrimacao.show();
     }
 
     public void salvaUsuario(View view){
@@ -143,5 +139,37 @@ public class DadosUsuarioActivity extends Activity {
                 }
             }
         }
+    }
+    private AlertDialog criaDialogConfirmacao(){
+        //Cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Define um título
+        builder.setMessage(R.string.confirmacao_exclusao_usuario);
+        //Define um botão positivo
+        builder.setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Verifica se o usuário foi deletado.
+                String mensagemErro;
+                if (usuarioDao.delete(usuarioEdicao) == 1){
+                    mensagemErro = "Usuário deletado com sucesso";
+                }
+                else{
+                    mensagemErro = "O Usuário não foi deletado";
+                }
+                Toast toast = Toast.makeText(DadosUsuarioActivity.this, mensagemErro, Toast.LENGTH_SHORT);
+                toast.show();
+                startActivity(new Intent(DadosUsuarioActivity.this,LoginActivity.class));
+            }
+        });
+        //Define um botão negativo
+        builder.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //fecha a AlertDialog
+                dialogConfrimacao.dismiss();
+            }
+        });
+        return builder.create();
     }
 }

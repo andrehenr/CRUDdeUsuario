@@ -115,15 +115,12 @@ public class UsuarioDao {
             String login = cursor.getString(2);
             String status = cursor.getString(3);
             String tipo = cursor.getString(4);
-
             item.put("id",id);
             item.put("nome", "Nome: "+nomeComplero);
             item.put("login", "Login: "+login);
             item.put("status", "Status: "+status);
             item.put("tipo", "Tipo: "+tipo);
-
             usuarios.add(item);
-
             cursor.moveToNext();
         }
         return usuarios;

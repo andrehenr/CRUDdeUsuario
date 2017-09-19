@@ -15,6 +15,7 @@
             android:inputType = "text" />
         <Button
             android:id = "@+id/btn_pesquisar"
-            android:text = "@string/btn_search"/>
+            android:text = "@string/btn_search"
+            android:onClick="pesquisa"/>
     </TableLayout>
 </LinearLayout>
